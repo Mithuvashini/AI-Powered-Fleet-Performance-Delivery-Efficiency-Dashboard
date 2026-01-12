@@ -1,213 +1,76 @@
-# AI-Powered Fleet Performance & Delivery Efficiency Dashboard  
+# Fleet Performance & Delivery Efficiency Dashboard
 
-The objective is to analyze fleet performance for a logistics company by evaluating
-delivery efficiency, fuel usage, and operational cost using Power BI and AI visuals.
+## Overview
+This project analyzes **fleet operations and delivery performance** to evaluate cost efficiency, fuel usage, maintenance impact, and on-time delivery performance.  
+The dashboard is designed for **operations and logistics decision-makers** to identify inefficiencies, cost drivers, and performance gaps at vehicle and driver levels.
 
-This repository focuses on **conceptual explanation**, not implementation or DAX formulas.
+## Screenshot
+<img width="1611" height="949" alt="image" src="https://github.com/user-attachments/assets/508f9c62-4774-47a7-aee0-d0db2fb2c417" />
 
----
+## Key Objectives
+- Monitor overall fleet cost and fuel efficiency
+- Track on-time delivery performance by destination
+- Compare vehicle types on cost per KM and maintenance
+- Identify drivers and vehicles influencing delivery delays
+- Analyze distance, fuel, and maintenance impact on performance
 
-## Business Scenario
+## Dashboard KPIs
+- **Total Trips:** 50  
+- **Cost per Trip:** ₹19,589  
+- **Total Expenses:** ₹9,79,441  
+- **Maintenance Cost:** ₹5,20,000  
+- **Fuel Consumed:** 4,594 Litres  
+- **Total Distance Covered:** 52,941 KM  
+- **Fuel Efficiency:** 11.52 KM/L  
+- **Average Cost per KM:** ₹18.50  
+- **On-Time Delivery Rate:** 60%  
+- **Average Delivery Time:** 25  
 
-A logistics company wants to improve operational efficiency by analyzing:
-- On-time delivery performance
-- Fuel efficiency of vehicles
-- Cost per kilometer
-- Vehicle maintenance impact
+## Visualizations Included
+- **On-Time Delivery % by Destination**  
+  - City-wise delivery performance comparison  
+- **Fuel Efficiency by Day**  
+  - Identifies daily efficiency fluctuations and anomalies  
+- **Maintenance Cost Distribution by Vehicle Type**  
+  - Truck, Van, Mini-Truck comparison  
+- **Average Cost per KM by Vehicle Type**  
+  - Highlights cost-heavy vehicle categories  
+- **Decomposition Tree Analysis**  
+  - Cost per KM broken down by:
+    - Vehicle Type  
+    - Distance  
+    - Maintenance Cost  
+- **Key Influencers Visual**  
+  - Identifies drivers most impacting on-time delivery status  
 
-The dashboard is designed to support **route optimization, fleet utilization, and cost control**.
-
----
-
-## Dataset Overview
-
-The analysis is based on a single Excel file:
-
-### `logistics_project_dataset.xlsx`
-
-#### 1. Trip_Data Table
-Contains trip-level operational data:
-- Trip ID
+## Filters & Slicers
+- Delivery Status (On-Time / Late)
+- Vehicle Type (Truck, Van, Mini-Truck)
 - Vehicle ID
 - Driver ID
-- Origin and Destination
-- Distance traveled (km)
-- Fuel consumed (liters)
-- Delivery status (On-Time / Late)
-- Delivery date
 
-This table represents **day-to-day logistics operations**.
+## Tools & Technologies
+- **Power BI**
+- **DAX** for calculated measures
+- **Excel** dataset for fleet and trip data
 
----
+## Business Insights
+- Trucks contribute the **highest cost per KM** compared to Vans and Mini-Trucks  
+- Maintenance cost is a **major driver of cost inefficiency**  
+- On-time delivery performance varies significantly by destination  
+- Certain drivers have a **disproportionate impact on delivery delays**  
+- Fuel efficiency shows **high daily volatility**, indicating inconsistent driving or route conditions  
 
-#### 2. Vehicle_Master Table
-Contains vehicle-level reference data:
-- Vehicle ID
-- Vehicle type
-- Capacity
-- Maintenance cost
+## Use Case
+This dashboard is suitable for:
+- Fleet & logistics managers
+- Operations and delivery heads
+- Cost optimization and performance monitoring teams
+- Driver and vehicle performance audits
 
-This table provides **contextual attributes** required for cost and efficiency analysis.
-
----
-
-## Data Cleaning & Data Modeling (Conceptual)
-
-### Missing Fuel Consumption Handling
-Some trips contain missing fuel consumption values.
-
-Approach:
-- Replace missing values using **mean imputation**
-
-Purpose:
-- Ensures fuel efficiency calculations are not distorted
-- Prevents broken measures and misleading visuals
+## Notes
+- Data is used for analytical and demonstration purposes.
+- Dashboard focuses on **root-cause analysis**, not just surface-level KPIs.
 
 ---
-
-### Data Relationships
-A relationship is created between:
-- `Trip_Data[Vehicle_ID]`
-- `Vehicle_Master[Vehicle_ID]`
-
-Purpose:
-- Enables vehicle-level cost and type analysis
-- Allows combined insights across operational and master data
-
-Without this relationship, cost and efficiency analysis is invalid.
-
----
-
-## Key Metrics (Business Meaning)
-
-### Fuel Efficiency
-Represents how efficiently fuel is converted into distance traveled.
-
-Why it matters:
-- Identifies inefficient vehicles or driving behavior
-- Supports fuel optimization strategies
-
----
-
-### On-Time Delivery Percentage
-Measures reliability of deliveries.
-
-Why it matters:
-- Directly impacts customer satisfaction
-- Helps identify problematic destinations or routes
-
----
-
-### Cost per Kilometer
-Represents operational cost normalized by distance.
-
-Cost components include:
-- Fuel cost (fixed assumption)
-- Vehicle maintenance cost
-
-Why it matters:
-- Allows fair comparison across trips and vehicles
-- Highlights expensive routes or vehicle types
-
----
-
-## Visual Analysis (Purpose of Each Visual)
-
-### Bar Chart – On-Time Delivery % by Destination
-Shows delivery performance across destinations.
-
-Business value:
-- Identifies regions with frequent delays
-- Supports route and scheduling improvements
-
----
-
-### Line Chart – Fuel Efficiency Trend by Delivery Date
-Displays changes in fuel efficiency over time.
-
-Business value:
-- Detects performance degradation
-- Helps monitor vehicle health and driver behavior
-
----
-
-### KPI Cards
-
-#### Average Delivery Time
-Provides a quick view of delivery speed.
-
-#### Average Cost per Kilometer
-Summarizes operational cost efficiency.
-
-Business value:
-- Enables executive-level monitoring
-- Supports quick decision-making
-
----
-
-### Pie Chart – Vehicle Type vs Average Maintenance Cost
-Shows maintenance cost distribution by vehicle type.
-
-Business value:
-- Identifies high-maintenance vehicle categories
-- Supports fleet replacement decisions
-
----
-
-## AI-Powered Visuals (Conceptual Use)
-
-### Q&A Visual
-Allows natural language questions such as:
-- “Average cost per km by vehicle type?”
-
-Business value:
-- Enables self-service analytics
-- Reduces dependency on manual reports
-
----
-
-### Key Influencers Visual
-Analyzes what factors influence delivery status.
-
-Explained by:
-- Distance traveled
-- Vehicle type
-- Driver ID
-
-Business value:
-- Identifies root causes of late deliveries
-- Supports targeted interventions
-
----
-
-### Decomposition Tree
-Breaks down cost per kilometer into contributing factors:
-- Vehicle type
-- Maintenance cost
-- Distance traveled
-
-Business value:
-- Enables deep cost diagnostics
-- Helps decision-makers explore cost drivers interactively
-
----
-
-## Expected Outcome
-
-The final dashboard enables:
-- Optimization of delivery routes
-- Better fleet utilization
-- Cost reduction through data-driven decisions
-- Improved on-time delivery performance
-
-This project demonstrates **end-to-end Power BI capability**, combining
-data modeling, business metrics, visual analytics, and AI-powered insights.
-
----
-
-## Key Takeaways
-
-- Data quality directly impacts insight quality
-- Relationships are the backbone of Power BI analysis
-- AI visuals enhance exploration, not replace thinking
-- Dashboards must answer business questions, not just display data
+**Author:** Mithu  
